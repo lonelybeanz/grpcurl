@@ -51,7 +51,7 @@ type jsonRequestParser struct {
 func NewJSONRequestParser(in io.Reader, resolver jsonpb.AnyResolver) RequestParser {
 	return &jsonRequestParser{
 		dec:         json.NewDecoder(in),
-		unmarshaler: jsonpb.Unmarshaler{AnyResolver: resolver},
+		unmarshaler: jsonpb.Unmarshaler{AnyResolver: resolver, AllowUnknownFields: true},
 	}
 }
 
